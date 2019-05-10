@@ -8,19 +8,15 @@ import Menu from './Menu';
 import styles from './Sidebar.module.scss';
 
 type Props = {
-  +isIndex: ?boolean,
+  +isIndex: ?boolean
 };
 
 type PureProps = Props & {
-  +data: Object,
+  +data: Object
 };
 
 export const PureSidebar = ({ data, isIndex }: PureProps) => {
-  const {
-    author,
-    copyright,
-    menu
-  } = data.site.siteMetadata;
+  const { author, copyright, menu } = data.site.siteMetadata;
 
   return (
     <div className={styles['sidebar']}>
@@ -28,6 +24,7 @@ export const PureSidebar = ({ data, isIndex }: PureProps) => {
         <Author author={author} isIndex={isIndex} />
         <Menu menu={menu} />
         <Contacts contacts={author.contacts} />
+
         <Copyright copyright={copyright} />
       </div>
     </div>
@@ -64,7 +61,7 @@ export const Sidebar = (props: Props) => (
         }
       }
     `}
-    render={(data) => <PureSidebar {...props} data={data}/>}
+    render={data => <PureSidebar {...props} data={data} />}
   />
 );
 
